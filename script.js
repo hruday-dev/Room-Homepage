@@ -52,11 +52,16 @@ arrowLeft.addEventListener("click", (e) => {
 const menu = document.getElementById('menu');
 const menuOpen = document.getElementById('menu-open');
 const menuClose = document.getElementById('menu-close');
- 
-menu.style.display='none';
+const main = document.querySelector('main');
+
+const frame = window.matchMedia("(width <= 769px)");
+if(frame.matches) menu.style.display='none';
 menuOpen.addEventListener('click',(e)=>{
     menu.style.display='flex';
+    document.body.style.overflow='hidden';
+    main.classList.add('dark');
 })
 menuClose.addEventListener('click',(e)=>{
     menu.style.display='none';
+    main.classList.remove('dark');
 })
